@@ -1,0 +1,23 @@
+<div class="product-item"
+    [class.is-available]="product.isAvailable">
+
+    <h2>{{product.name}}</h2>
+    <p>{{product.description}}</p>
+    <p>Current price is: {{product.price}}</p>
+    <p>Amount is {{product.amount}}</p>
+
+    <div class="actions">
+        <button class="buy"
+            [disabled]="product.isAvailable && product.isBought"
+            (click)="onBuy(product)">
+            Buy
+        </button>
+        <button class="cancel"
+            *ngIf="product.isBought"
+            [disabled]="!product.isBought"
+            (click)="onCancel(product)">
+            Cancel
+        </button>
+    </div>
+
+</div>

@@ -1,0 +1,8 @@
+<div *ngIf="order.length; else emptyCart">
+    There are {{order.length}} products in your cart.
+    Total cost is {{getPrice()}};
+</div>
+
+<ng-template #emptyCart>
+    You hasn't buy yet
+</ng-template>

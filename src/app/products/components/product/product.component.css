@@ -1,0 +1,17 @@
+.product-item {
+    /* margin: 0 auto; */
+    padding: 2%;
+    border: 1px solid grey;
+}
+
+.is-available {
+    background-color: green;
+}
+
+.buy {
+    background-color: orange;
+}
+
+.cancel {
+    background-color: red;
+}
