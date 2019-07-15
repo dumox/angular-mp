@@ -5,8 +5,8 @@ export class Product {
         public price: number,
         public amount: number,
         public isAvailable: boolean,
-        public isBought: boolean
+        public isBought: boolean = false // как вариант
         ) {
-            this.isBought = false;
+            // this.isBought = false;
     }
 }
