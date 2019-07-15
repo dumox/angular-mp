@@ -17,6 +17,7 @@ export class CartComponent implements OnInit {
   }
 
   getPrice(): number {
+    // может лучше эту логику вынести в геттер сервиса? 
     return this.order.reduce((prev, curr) => prev + curr.price, 0);
   }
 }

@@ -16,13 +16,12 @@ import { CartService } from './cart/services/cart.service';
     ProductListComponent,
     CartComponent
   ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [
-    ProductsService,
-    CartService
-  ],
+  imports: [BrowserModule],
+  // Сервисы уже зарегистрированы с помощью декоратора Injectable
+  // providers: [
+  //   ProductsService,
+  //   CartService
+  // ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

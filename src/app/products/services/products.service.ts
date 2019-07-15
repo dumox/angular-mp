@@ -21,6 +21,7 @@ export class ProductsService {
   updateProduct({name}: Product, action): Product {
     const productToUpdate = this.products.find( product => product.name === name);
     action === 'sell'
+    // можно попасть в отрицательное количество
       ? (productToUpdate.amount--, productToUpdate.isBought = true)
       : (productToUpdate.amount++, productToUpdate.isBought = false);
 
