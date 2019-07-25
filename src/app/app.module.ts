@@ -2,27 +2,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ProductComponent } from './products/components/product/product.component';
-import { ProductListComponent } from './products/components/product-list/product-list.component';
-import { CartComponent } from './cart/components/cart/cart.component';
 
-import { ProductsService } from './products/services/products.service';
-import { CartService } from './cart/services/cart.service';
+import { SharedModule } from './shared/shared.module';
+import { ProductsModule } from './products/products.module';
+import { CartModule } from './cart/cart.module';
+import { HighliterDirective } from './shared/directives/highliter.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent,
-    ProductListComponent,
-    CartComponent
+    // HighliterDirective
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    SharedModule,
+    ProductsModule,
+    CartModule
   ],
-  providers: [
-    ProductsService,
-    CartService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,23 +1,28 @@
-<div class="product-item"
-    [class.is-available]="product.isAvailable">
+<div class="card"
+    [class.is-bought]="product.isBought">
 
-    <h2>{{product.name}}</h2>
-    <p>{{product.description}}</p>
-    <p>Current price is: {{product.price}}</p>
-    <p>Amount is {{product.amount}}</p>
+    <div class="card-body">
+        <h2 class="card-title">{{product.name}}</h2>
+        <p class="card-text">{{product.description}}</p>
+        <p class="card-text">Current price is: {{product.price | currency}}</p>
+        <p class="card-text">
+            <span class="badge badge-warning">{{product.quantity}}</span>
+            products left
+        </p>
+    </div>
 
-    <div class="actions">
-        <button class="buy"
+    <div class="p-3">
+        <button type="button" class="btn btn-success mr-4"
+            *ngIf="product.isAvailable"
             [disabled]="product.isAvailable && product.isBought"
             (click)="onBuy(product)">
             Buy
         </button>
-        <button class="cancel"
+        <button type="button" class="btn btn-danger"
             *ngIf="product.isBought"
             [disabled]="!product.isBought"
             (click)="onCancel(product)">
             Cancel
         </button>
     </div>
-
 </div>

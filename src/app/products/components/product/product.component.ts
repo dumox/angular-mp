@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { Product } from '../../models/product';
 
 @Component({
@@ -7,13 +7,10 @@ import { Product } from '../../models/product';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  @Input()
-  product: Product;
+  @Input() product: Product;
 
-  @Output()
-  addToCart: EventEmitter<Product> = new EventEmitter();
-  @Output()
-  removeFromCart: EventEmitter<Product> = new EventEmitter();
+  @Output() addToCart: EventEmitter<Product> = new EventEmitter();
+  @Output() removeFromCart: EventEmitter<Product> = new EventEmitter();
 
   constructor() { }
 
@@ -21,14 +18,14 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
   }
 
-  onBuy(product: Product): void {
-    console.log(`${product.name} is bought`);
-    this.addToCart.emit(product);
+  onBuy(): void {
+    console.log(`${this.product.name} is bought`);
+    this.addToCart.emit(this.product);
   }
 
-  onCancel(product: Product): void {
-    console.log(`${product.name} is canceled`);
-    this.removeFromCart.emit(product);
+  onCancel(): void {
+    console.log(`${this.product.name} is canceled`);
+    this.removeFromCart.emit(this.product);
   }
 
 }

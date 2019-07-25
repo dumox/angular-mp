@@ -1,0 +1,22 @@
+<div class="cart-list"
+    *ngIf="order.length; else emptyCart">
+
+    <h3>{{title}}</h3>
+    <p>There {{order.length < 2 ? 'is product': 'are products'}} {{order.length}} in your cart.</p>
+    <p class="font-weight-bold">The total cost is: {{getPrice() | currency}}</p>
+
+    <div class="list-group list-group-flush"
+        *ngFor="let orderItem of order">
+        <app-cart-list-item class="list-group-item"
+            [order]="orderItem"
+            (updateQuantity)="onUpdateQuantity($event)"
+            (removeFromCart)="onRemoveFromCart($event)"
+            appHighliter>
+        </app-cart-list-item>
+    </div>
+
+</div>
+
+<ng-template #emptyCart>
+    You hasn't bought anything yet...
+</ng-template>

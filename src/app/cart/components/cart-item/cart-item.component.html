@@ -1,0 +1,18 @@
+<div>
+    <p>Product NAME {{order.name}}</p>
+    <p>Cost {{order.cost | currency}}</p>
+    <div>
+        <button type="button" class="btn btn-outline-primary"
+            (click)="addOneMore()">
+            +
+        </button>
+        <span class="badge badge-secondary p-3 m-2">
+            {{order.quantity}}
+        </span>
+        <button type="button" class="btn btn-outline-dark"
+            (click)="removeOne()">
+            -
+        </button>
+    </div>
+
+</div>
