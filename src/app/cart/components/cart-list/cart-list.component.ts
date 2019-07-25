@@ -19,6 +19,7 @@ export class CartListComponent implements OnInit {
     this.order = this.cartService.getOrderList();
   }
 
+  // желательно указывать тип параметров
   onUpdateQuantity(orderData): void {
     this.cartService.updateOrderQuantity(orderData);
   }

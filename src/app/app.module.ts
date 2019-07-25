@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { ProductsModule } from './products/products.module';
 import { CartModule } from './cart/cart.module';
-import { HighliterDirective } from './shared/directives/highliter.directive';
+// import { HighliterDirective } from './shared/directives/highliter.directive';
 
 @NgModule({
   declarations: [
