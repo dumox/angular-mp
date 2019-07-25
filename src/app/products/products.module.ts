@@ -4,18 +4,12 @@ import { CommonModule } from '@angular/common';
 import { ProductComponent } from './components/product/product.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 
-
 @NgModule({
-  declarations: [
-    ProductComponent,
-    ProductListComponent
-  ],
-  imports: [
-    CommonModule
-  ],
+  declarations: [ProductComponent, ProductListComponent],
+  imports: [CommonModule],
   exports: [
-    ProductComponent,
+    // ProductComponent, // этот компонент можно сделать приватным, он не используется в других модулях
     ProductListComponent
   ]
 })
-export class ProductsModule { }
+export class ProductsModule {}

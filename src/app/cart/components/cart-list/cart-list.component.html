@@ -7,6 +7,7 @@
 
     <div class="list-group list-group-flush"
         *ngFor="let orderItem of order">
+        <!-- нет метода  onRemoveFromCart -->
         <app-cart-list-item class="list-group-item"
             [order]="orderItem"
             (updateQuantity)="onUpdateQuantity($event)"
