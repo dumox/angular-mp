@@ -10,7 +10,7 @@ import { ACTIONS } from './../../shared/actions';
   providedIn: 'root'
 })
 export class CartService {
-  id: number = 0;
+  id = 0;
   orderList: Array<Order> = [];
 
 
@@ -40,7 +40,7 @@ export class CartService {
   }
 
   updateOrderQuantity(orderData): void {
-    console.log('orderData ', orderData)
+    console.log('orderData ', orderData);
     const {action, id, productId} = orderData;
     const productToUpdate = this.productsService.getProduct({id: productId});
     const order = this.getOrder({id});
@@ -60,5 +60,12 @@ export class CartService {
       return this.orderList.reduce((prev, curr) => prev + curr.price * curr.quantity, 0);
     }
     return 0;
+  }
+
+  clearCart(): void {
+    this.orderList = [];
+    this.id = 0;
+    this.productsService.restoreAllProducts();
+    this.orderList = [];
   }
 }

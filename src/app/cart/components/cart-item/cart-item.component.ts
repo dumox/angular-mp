@@ -9,7 +9,7 @@ import { ACTIONS } from './../../../shared/actions';
   templateUrl: './cart-item.component.html',
   styleUrls: ['./cart-item.component.css']
 })
-export class CartItemComponent{
+export class CartItemComponent {
   @Input() order: Order;
 
   @Output() updateQuantity: EventEmitter<any> = new EventEmitter();
@@ -25,14 +25,14 @@ export class CartItemComponent{
       action: ACTIONS.BUY});
   }
 
-  removeOne(): void{
+  removeOne(): void {
     this.updateQuantity.emit({
       id: this.order.id,
       productId: this.order.productId,
-      action: ACTIONS.RETURN})
+      action: ACTIONS.RETURN});
   }
 
-  remove(): void {
-    this.removeFromCart.emit();
+  cancel(): void {
+    this.removeFromCart.emit(this.order);
   }
 }

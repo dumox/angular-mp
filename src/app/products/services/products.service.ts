@@ -7,14 +7,15 @@ import { ACTIONS } from './../../shared/actions';
   providedIn: 'root'
 })
 export class ProductsService {
-  private id: number = 0;
-  private products: Array<Product> = [
+  private id = 0;
+  products: Array<Product> = [
     new Product(this.id++, 'Bread', 'Very tasty and useful product', 2, 10, true, false),
     new Product(this.id++, 'Computer', 'Your best friend', 2, 5, true, false),
     new Product(this.id++, 'Jeans', 'Can not imagine your life without it', 3, 50, true, false)
   ];
+  productsCache: Array<Product> = [];
 
-  constructor() { }
+  constructor() {}
 
   getProducts(): Array<Product> {
     return this.products;
@@ -25,10 +26,13 @@ export class ProductsService {
   }
 
   updateProduct(product: Product, action): boolean {
+    if (!this.productsCache.length) {
+      this.productsCache = this.products.map(productItem => Object.assign({}, productItem));
+      console.log('cached ', this.productsCache);
+    }
     if (product.quantity > 0 && product.isAvailable && action === ACTIONS.BUY) {
       product.quantity--;
       product.isBought = true;
-      debugger
       return true;
     }
     if (product.quantity === 0) {
@@ -36,10 +40,24 @@ export class ProductsService {
       return false;
     }
     if (action === ACTIONS.RETURN) {
-      product.quantity++;
-      // product.isBought = false;
+      product = this.getProductFromCache(product);
       return true;
     }
   }
 
+  getProductFromCache({id}): Product {
+    return this.productsCache.find(product => product.id === id);
+  }
+
+  restoreAllProducts(): void {
+    this.products = this.productsCache;
+    console.log('products ', this.products);
+    console.log('productsCache ', this.productsCache);
+  }
+
+  restoreProduct(product): void {
+    const productToRestore = this.getProductFromCache(product);
+    const index = this.products.indexOf(this.getProduct(product));
+    this.products[index] = productToRestore;
+  }
 }

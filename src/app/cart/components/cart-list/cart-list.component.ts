@@ -9,17 +9,21 @@ import { Order } from '../../models/order';
 })
 export class CartListComponent implements OnInit {
   order: Order[];
-  title: string = 'The List of products:';
+  title = 'You have bought:';
 
   constructor(
     private cartService: CartService
     ) { }
 
   ngOnInit() {
+    this.getOrderList();
+  }
+
+  getOrderList() {
     this.order = this.cartService.getOrderList();
   }
 
-  onUpdateQuantity(orderData): void {
+  onUpdateQuantity(orderData: {}): void {
     this.cartService.updateOrderQuantity(orderData);
   }
 
@@ -27,4 +31,12 @@ export class CartListComponent implements OnInit {
     return this.cartService.getPrice();
   }
 
+  clearCart(): void {
+    this.cartService.clearCart();
+    this.getOrderList();
+  }
+
+  onRemoveFromCart(product): void {
+    this.cartService.removeFromOrder(product);
+  }
 }

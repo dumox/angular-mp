@@ -4,6 +4,10 @@
     <h3>{{title}}</h3>
     <p>There {{order.length < 2 ? 'is product': 'are products'}} {{order.length}} in your cart.</p>
     <p class="font-weight-bold">The total cost is: {{getPrice() | currency}}</p>
+    <button class="btn btn-danger"
+        (click)="clearCart()">
+        Cancel all orders
+    </button>
 
     <div class="list-group list-group-flush"
         *ngFor="let orderItem of order">

@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { SharedService } from './shared.service';
 import { HighliterDirective } from './directives/highliter.directive';
+import { TextSizeTransformerDirective } from './directives/text-size-transformer.directive';
 
 
 @NgModule({
   declarations: [
-    HighliterDirective
+    HighliterDirective,
+    TextSizeTransformerDirective
   ],
   imports: [
     CommonModule
@@ -15,7 +17,8 @@ import { HighliterDirective } from './directives/highliter.directive';
   providers: [
   ],
   exports: [
-    HighliterDirective
+    HighliterDirective,
+    TextSizeTransformerDirective
   ]
 })
 export class SharedModule { }
