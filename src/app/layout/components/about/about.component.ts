@@ -5,7 +5,7 @@ import { ConfigOptionsService } from 'src/app/core/services/config-options.servi
 import { ConstantService } from 'src/app/core/services/constant.service';
 import { GeneratorService } from 'src/app/core/services/generator.service';
 
-const constant = new ConstantService()
+const constant = new ConstantService();
 const generatedString = new GeneratorService().getRandomString(15);
 @Component({
   selector: 'app-about',
@@ -25,8 +25,6 @@ export class AboutComponent implements OnInit {
     @Optional() private localStorageService: LocalStorageService,
     @Optional() private configOptionsService: ConfigOptionsService,
     @Optional() private constantServiceInstance: ConstantService,
-    // @Optional()
-    // @Inject(GeneratorService) private getRandomString
     ) { }
 
   ngOnInit() {

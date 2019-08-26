@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 import { Product } from '../models/product';
 import { ACTIONS } from './../../shared/actions';
@@ -10,15 +11,15 @@ export class ProductsService {
   private id = 0;
   products: Array<Product> = [
     new Product(this.id++, 'Bread', 'Very tasty and useful product', 2, 10, true, false),
-    new Product(this.id++, 'Computer', 'Your best friend', 2, 5, true, false),
+    new Product(this.id++, 'Computer', 'Your best friend', 100, 5, true, false),
     new Product(this.id++, 'Jeans', 'Can not imagine your life without it', 3, 50, true, false)
   ];
   productsCache: Array<Product> = [];
 
   constructor() {}
 
-  getProducts(): Array<Product> {
-    return this.products;
+  getProducts(): Observable<Array<Product>> {
+    return of(this.products);
   }
 
   getProduct({id}): Product {

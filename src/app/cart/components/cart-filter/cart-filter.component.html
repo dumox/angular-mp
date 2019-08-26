@@ -1,0 +1,17 @@
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-secondary" type="button"
+        (click)="onOrder()">
+        {{filterOrder ? "&#9661;" : "&#9651;"}}
+      </button>
+    </div>
+    <select class="custom-select" id="inputGroupSelect01"
+      (change)="onSelect($event)">
+
+      <option *ngFor="let filter of filterValues"
+        value={{filter.value}}
+        [selected]="filter.value === defaultValue ? true : false">
+        {{filter.name}}
+      </option>
+    </select>
+  </div>

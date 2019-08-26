@@ -10,6 +10,8 @@ import { Order } from '../../models/order';
 export class CartListComponent implements OnInit {
   order: Order[];
   title = 'You have bought:';
+  filterBy: string;
+  descendingOrder: true;
 
   constructor(
     private cartService: CartService
@@ -38,5 +40,13 @@ export class CartListComponent implements OnInit {
 
   onRemoveFromCart(product): void {
     this.cartService.removeFromOrder(product);
+  }
+
+  onFilterByValue(filterValue): void {
+    this.filterBy = filterValue;
+  }
+
+  onFilterOrderValue(filterOrderValue): void {
+    this.descendingOrder = filterOrderValue;
   }
 }

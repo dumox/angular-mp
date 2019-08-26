@@ -3,6 +3,10 @@
 
     <h3>{{title}}</h3>
     <p>There {{order.length < 2 ? 'is product': 'are products'}} {{order.length}} in your cart.</p>
+    <app-cart-filter
+        (filterByValue)="onFilterByValue($event)"
+        (filterOrderValue)="onFilterOrderValue($event)">
+    </app-cart-filter>
     <p class="font-weight-bold">The total cost is: {{getPrice() | currency}}</p>
     <button class="btn btn-danger"
         (click)="clearCart()">
@@ -10,7 +14,7 @@
     </button>
 
     <div class="list-group list-group-flush"
-        *ngFor="let orderItem of order">
+        *ngFor="let orderItem of order | orderBy:filterBy:descendingOrder">
         <app-cart-list-item class="list-group-item"
             [order]="orderItem"
             (updateQuantity)="onUpdateQuantity($event)"

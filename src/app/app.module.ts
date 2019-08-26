@@ -16,7 +16,6 @@ import { AboutComponent } from './layout/components/about/about.component';
   ],
   imports: [
     BrowserModule,
-    // CoreModule,
     SharedModule,
     ProductsModule,
     CartModule,

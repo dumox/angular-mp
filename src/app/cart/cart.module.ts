@@ -4,16 +4,17 @@ import { CommonModule } from '@angular/common';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { CartListComponent } from './components/cart-list/cart-list.component';
 
-// import { SharedModule } from './../shared/shared.module';
 import { SharedService } from './../shared/shared.service';
 import { SharedModule } from '../shared/shared.module';
-// import { HighliterDirective } from './../shared/directives/highliter.directive';
+import { CartFilterComponent } from './components/cart-filter/cart-filter.component';
+import { OrderByPipe } from './pipes/order-by.pipe';
 
 @NgModule({
   declarations: [
     CartItemComponent,
     CartListComponent,
-    // HighliterDirective
+    CartFilterComponent,
+    OrderByPipe
   ],
   imports: [
     CommonModule,
