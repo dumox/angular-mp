@@ -56,6 +56,7 @@ export class ProductsService {
     console.log('productsCache ', this.productsCache);
   }
 
+  // параметр без типа?
   restoreProduct(product): void {
     const productToRestore = this.getProductFromCache(product);
     const index = this.products.indexOf(this.getProduct(product));

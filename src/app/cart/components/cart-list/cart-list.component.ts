@@ -38,6 +38,7 @@ export class CartListComponent implements OnInit {
     this.getOrderList();
   }
 
+  // Параметры без типов?
   onRemoveFromCart(product): void {
     this.cartService.removeFromOrder(product);
   }

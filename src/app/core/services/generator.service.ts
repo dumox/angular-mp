@@ -5,7 +5,7 @@ import { CoreModule } from '../core.module';
   providedIn: CoreModule
 })
 export class GeneratorService {
-  length = 5;
+  length = 5; // это значение надо задавать через useFactory: fn(5)
 
   constructor() {
       this.getRandomString();
