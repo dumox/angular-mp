@@ -14,7 +14,7 @@ import { ProductsService } from './../../services/products.service';
 })
 export class ProductListComponent implements OnInit, DoCheck{
   products: Array<Product>;
-  products$; // Observable?
+  products$: Observable<Product[]>; // Observable?
 
   constructor(
     private productsService: ProductsService,
@@ -30,7 +30,7 @@ export class ProductListComponent implements OnInit, DoCheck{
   }
 
   getProductList(): void {
-    this.productsService.getProducts().subscribe(products => this.products$ = products);
+    this.products$ = this.productsService.getProducts(); // .subscribe(products => this.products$ = products);
   }
 
   onAddToCart(product: Product): void {
