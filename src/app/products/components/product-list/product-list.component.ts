@@ -14,7 +14,7 @@ import { ProductsService } from './../../services/products.service';
 })
 export class ProductListComponent implements OnInit, DoCheck{
   products: Array<Product>;
-  products$;
+  products$; // Observable?
 
   constructor(
     private productsService: ProductsService,
